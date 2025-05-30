@@ -23,3 +23,21 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  jobs:
+  - deployment: WebDeploy
+    displayName: Web deploy
+    environment:
+      name: environment-metodologias-desarrollo
+      resourceType: VirtualMachine
+      tags: 
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo my first deployment
+
+      
