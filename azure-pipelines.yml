@@ -33,7 +33,7 @@ stages:
     environment:
       name: environment-metodologias-desarrollo
       resourceType: VirtualMachine
-      tags: 
+      tags: test
     strategy:
       runOnce:
         deploy:
